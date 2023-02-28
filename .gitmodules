@@ -1,0 +1,6 @@
+[submodule "scrimFinder-API"]
+	path = scrimFinder-API
+	url = https://github.com/SemPlasmeijer/scrimFinder-API
+[submodule "scrimFinder-FE"]
+	path = scrimFinder-FE
+	url = https://github.com/SemPlasmeijer/scrimFinder-FE
