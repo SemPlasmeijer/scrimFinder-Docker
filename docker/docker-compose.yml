@@ -13,7 +13,7 @@ services:
     networks:
       - rabbitmq_go_net
   scrimfinderapi:
-    container_name: "scrimFinderAPI"
+    container_name: "scrimFinder-API"
     build:
       dockerfile: Dockerfile
       context: ../scrimFinder-API
@@ -24,14 +24,19 @@ services:
   scrimfinderwq:
     depends_on:
       - rabbitmq
-    container_name: "scrimFinderWQ"
+    container_name: "scrimFinder-WQ"
     build:
       dockerfile: Dockerfile
       context: ../scrimfinder-WQ
     ports:
       - 8081:8081
-    networks:
-      - spring-cloud-network
+  scrimfinderfe:
+    container_name: "scrimFinder-FE"
+    build:
+      dockerfile: Dockerfile
+      context: ../scrimFinder-FE
+    ports:
+      - 8080:8080
 networks:
   rabbitmq_go_net:
     driver: bridge
