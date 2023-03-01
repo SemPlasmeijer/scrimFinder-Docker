@@ -4,3 +4,6 @@
 [submodule "scrimFinder-FE"]
 	path = scrimFinder-FE
 	url = https://github.com/SemPlasmeijer/scrimFinder-FE
+[submodule "Scrimfinder-WQ"]
+	path = Scrimfinder-WQ
+	url = https://github.com/SemPlasmeijer/ScrimFinder-WQ
