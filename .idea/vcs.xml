@@ -4,5 +4,6 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/scrimFinder-API" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/scrimFinder-FE" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/scrimfinder-WQ" vcs="Git" />
   </component>
 </project>
