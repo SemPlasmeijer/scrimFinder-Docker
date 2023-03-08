@@ -30,6 +30,8 @@ services:
       context: ../scrimfinder-WQ
     ports:
       - 8081:8081
+    networks:
+      - rabbitmq_go_net
   scrimfinderfe:
     container_name: "scrimFinder-FE"
     build:
