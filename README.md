@@ -1,5 +1,8 @@
 # scrimFinder-Docker
 
+Step 0: 
+git submodule update --init --recursive
+
 Step 1:
 docker-compose build
 
