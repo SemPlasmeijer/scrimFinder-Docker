@@ -24,6 +24,7 @@ services:
   scrimfinderwq:
     depends_on:
       - rabbitmq
+      - db
     container_name: "scrimFinder-WQ"
     build:
       dockerfile: Dockerfile
@@ -32,6 +33,15 @@ services:
       - 8081:8081
     networks:
       - rabbitmq_go_net
+    environment:
+      NODE_ENV: production
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: scrimfinder
+      DB_NAME: scrimfinder
+    links:
+      - db
   scrimfinderfe:
     container_name: "scrimFinder-FE"
     build:
@@ -39,6 +49,22 @@ services:
       context: ../scrimFinder-FE
     ports:
       - 8080:8080
+  db:
+    image: mysql:8.0
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=scrimfinder
+      - MYSQL_ROOT_PASSWORD=scrimfinder
+    ports:
+      - '3306:3306'
+    volumes:
+      - db:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+volumes:
+  db:
+    driver: local
 networks:
   rabbitmq_go_net:
     driver: bridge
