@@ -11,7 +11,7 @@ services:
       - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
     command: ["bash", "-c", "chmod 400 /var/lib/rabbitmq/.erlang.cookie; rabbitmq-server"]
     networks:
-      - rabbitmq_go_net
+      - rabbitmq-go-net
   scrimfinderapi:
     container_name: "scrimFinder-API"
     build:
@@ -32,7 +32,7 @@ services:
     ports:
       - 8081:8081
     networks:
-      - rabbitmq_go_net
+      - rabbitmq-go-net
     environment:
       NODE_ENV: production
       DB_HOST: db
@@ -66,7 +66,7 @@ volumes:
   db:
     driver: local
 networks:
-  rabbitmq_go_net:
+  rabbitmq-go-net:
     driver: bridge
   spring-cloud-network:
     driver: bridge

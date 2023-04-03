@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: scrimfinderwq
+  name: scrimfinderwq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: scrimfinderwq
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/rabbitmq-go-net: "true"
+        io.kompose.service: scrimfinderwq
+    spec:
+      containers:
+        - env:
+            - name: DB_HOST
+              value: db
+            - name: DB_NAME
+              value: scrimfinder
+            - name: DB_PASSWORD
+              value: scrimfinder
+            - name: DB_PORT
+              value: "3306"
+            - name: DB_USER
+              value: root
+            - name: NODE_ENV
+              value: production
+          image: scrimfinderwq
+          name: scrimfinder-wq
+          ports:
+            - containerPort: 8081
+          resources: {}
+      restartPolicy: Always
+status: {}
