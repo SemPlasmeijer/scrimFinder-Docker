@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert
+    kompose.cmd: kompose convert -f files/docker-compose.yml
     kompose.version: 1.26.0 (40646f47)
   creationTimestamp: null
   labels:
@@ -17,7 +17,7 @@ spec:
   template:
     metadata:
       annotations:
-        kompose.cmd: kompose convert
+        kompose.cmd: kompose convert -f files/docker-compose.yml
         kompose.version: 1.26.0 (40646f47)
       creationTimestamp: null
       labels:
@@ -38,7 +38,7 @@ spec:
               value: root
             - name: NODE_ENV
               value: production
-          image: scrimfinderwq
+          image: semplasmeijer/scrimfinderwq:wqv1
           name: scrimfinder-wq
           ports:
             - containerPort: 8081

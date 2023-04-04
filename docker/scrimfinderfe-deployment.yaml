@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert
+    kompose.cmd: kompose convert -f files/docker-compose.yml
     kompose.version: 1.26.0 (40646f47)
   creationTimestamp: null
   labels:
@@ -17,14 +17,14 @@ spec:
   template:
     metadata:
       annotations:
-        kompose.cmd: kompose convert
+        kompose.cmd: kompose convert -f files/docker-compose.yml
         kompose.version: 1.26.0 (40646f47)
       creationTimestamp: null
       labels:
         io.kompose.service: scrimfinderfe
     spec:
       containers:
-        - image: scrimfinderfe
+        - image: semplasmeijer/scrimfinderfe:fev1
           name: scrimfinder-fe
           ports:
             - containerPort: 8080
