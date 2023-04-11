@@ -31,12 +31,23 @@ spec:
               value: scrimfinder
             - name: DB_PASSWORD
               value: scrimfinder
-            - name: DB_PORT
-              value: "3306"
+            - name: spring.datasource.url
+              value: jdbc:mysql://mysql-db:3306/scrimfinder
             - name: DB_USER
               value: root
             - name: NODE_ENV
               value: production
+            - name: spring.rabbitmq.host
+              value: rabbitmq
+            - name:  spring.rabbitmq.virtualhost
+              value: /
+            - name: spring.rabbitmq.port
+              value: "15672"
+            - name: spring.rabbitmq.username
+              value: guest
+            - name: spring.rabbitmq.password
+              value: guest
+
           image: semplasmeijer/scrimfinderwq:wqv1
           name: scrimfinder-wq
           ports:
