@@ -9,10 +9,12 @@ metadata:
     io.kompose.service: scrimfinderapi
   name: scrimfinderapi
 spec:
+  type: NodePort
   ports:
     - name: "8082"
       port: 8082
       targetPort: 8082
+      nodePort: 31332
   selector:
     io.kompose.service: scrimfinderapi
 status:
