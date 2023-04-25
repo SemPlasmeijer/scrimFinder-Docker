@@ -28,12 +28,12 @@ jobs:
         run: |
           export SHELL=/bin/bash
           eval $(minikube -p minikube docker-env)
-          docker-compose build ./docker/files/docker-compose.yml
+          docker-compose build ../docker/files/docker-compose.yml
           echo -n "verifying images:"
           docker images        
       - name: Deploy to minikube
         run:
-          kubectl apply -f .docker/
+          kubectl apply -f ../docker/
       - name: Test service URLs
         run: |
           minikube service list
