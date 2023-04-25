@@ -24,13 +24,6 @@ jobs:
         uses: medyagh/setup-minikube@master
       - name: Try the cluster !
         run: kubectl get pods -A
-      - name: Build image
-        run: |
-          export SHELL=/bin/bash
-          eval $(minikube -p minikube docker-env)
-          docker-compose build ./docker/files/docker-compose.yml
-          echo -n "verifying images:"
-          docker images        
       - name: Deploy to minikube
         run:
           kubectl apply -f ./docker/
