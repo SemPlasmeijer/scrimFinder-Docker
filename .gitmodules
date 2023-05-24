@@ -7,3 +7,6 @@
 [submodule "scrimfinder-WQ"]
 	path = scrimfinder-WQ
 	url = https://github.com/SemPlasmeijer/ScrimFinder-WQ
+[submodule "mlresearch"]
+	path = mlresearch
+	url = git@github.com:SemPlasmeijer/mlresearch.git

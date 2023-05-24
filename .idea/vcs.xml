@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mlresearch" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/scrimFinder-API" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/scrimFinder-FE" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/scrimfinder-WQ" vcs="Git" />
